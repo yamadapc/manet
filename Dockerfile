@@ -9,4 +9,4 @@ RUN apt-get install -y vim git wget libxrender-dev libasound2 libdbus-glib-1-2 l
 
 EXPOSE 8891
 
-CMD manet
+CMD manet --port $PORT
