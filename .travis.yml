@@ -7,13 +7,12 @@ node_js:
 before_install: npm install -g phantomjs
 script: npm run lint && npm test
 after_success:
-  after_success:
   - wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
   - heroku plugins:install heroku-container-tools
   - heroku container:push --app "$HEROKU_APP"
-  branches:
-    only:
-    - master
+branches:
+  only:
+  - master
 env:
   global:
   - secure: Ghq/vMBxTsKfZYR3l7QlbMEWEr2zGhIlItOJG5OcfMDd8jordo5Ti1MV7+XmfaFZz/RylruCKvysm2MPnigEOgIRTmYbdcy+U5kLxyh24jM1epT6H2WEi0wlNF5o1FndYwERR6HdnIXKSXWQSJImALANPd1X9ZBVe71B6XI33QM=
