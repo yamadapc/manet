@@ -7,6 +7,7 @@ node_js:
 before_install: npm install -g phantomjs
 script: npm run lint && npm test
 after_success:
+  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
   - heroku plugins:install heroku-container-tools
   - heroku container:push --app "$HEROKU_APP"
